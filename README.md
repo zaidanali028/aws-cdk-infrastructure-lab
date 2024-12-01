@@ -98,7 +98,8 @@ export MY_SSH_KEY_NAME="my-key-pair"
 ## 🏗️ Architecture Diagram
 
 ![Architecture Diagram](architecture-diagram.png)  
-*Comprehensive AWS CDK Infrastructure Layout*
+*Comprehensive AWS CDK Infrastructure Layout.*
+Diagram created with [CDK Dia](https://github.com/cdk-dia/cdk-dia).
 
 ---
 
