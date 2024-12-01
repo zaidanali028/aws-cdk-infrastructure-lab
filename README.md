@@ -77,7 +77,7 @@ export MY_SSH_KEY_NAME="my-key-pair"
 
 ### 1. Clone the Repository  
 ```bash
-git clone https://github.com/your-username/aws-cdk-infrastructure-lab.git
+git clone https://github.com/zaidanali028/aws-cdk-infrastructure-lab.git
 cd aws-cdk-infrastructure-lab
 ```
 
