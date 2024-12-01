@@ -1,9 +1,38 @@
 # **AWS Infrastructure Provisioning with CDK and Python**
 
 ## 🚀 Project Overview
-
 This repository demonstrates how to provision robust AWS infrastructure using **AWS Cloud Development Kit (CDK)** and **Python**. The infrastructure includes:
 
+## Project Structure
+
+This structure helps organize the project files and ensures a clear separation of concerns, making the codebase more maintainable and easier to navigate.
+```
+.
+├── README.md                 # Documentation
+├── app.py                    # Application entry point
+├── architecture-diagram.png  # Infratructure Diagram
+├── cdk.json                  # CDK configuration file
+├── cdk.out                   # Output directory for CloudFormation templates
+├── constants.py              # Shared constants used throughout the project
+├── diagram.dot               # Source file for the architecture diagram
+├── requirements-dev.txt      # Development dependencies
+├── requirements.txt          # Production dependencies
+├── source.bat                # Batch file to activate the virtual environment
+├── tests                     # Unit tests for the project
+│   ├── **init**.py           # Python package initialization
+│   └── unit                  # Unit test cases
+└── vpc_setup_stack_lab       # Main CDK stack implementation
+    ├── LICENSE               # License 
+    └── vpc_setup_stack_lab_stack.py  # CDK stack definition
+```
+
+## Features
+
+- 📦 **Infrastructure as Code (IaC)** using AWS CDK  
+- 📡 **Networking**: VPC and  Subnets
+- 📦 **Storage**: S3 Bucket with versioning and cleanup policies  
+- 📟 **Compute**: EC2 Instances with Bastion Host, Frontend, and Backend  
+- 🛡️ **Security**: Security Groups and IAM Roles    
 - 🌐 **Virtual Private Cloud (VPC)** with public and private subnets  
 - 🖥️ **EC2 Instances**: Bastion Host, Frontend, and Backend  
 - 💾 **S3 Bucket** with versioning and cleanup policies  
@@ -60,7 +89,7 @@ Set the following variables in your environment:
 
 Example:  
 ```bash
-export MY_IP="203.0.113.0"
+export MY_IP="YOUR_PUBLIC_IP"
 export MY_SSH_KEY_NAME="my-key-pair"
 ```
 
@@ -176,7 +205,7 @@ cdk destroy
 ## 📜 License  
 
 
-This project is licensed under the MIT License - see the [MIT](LICENSE) file for details.
+- This project is licensed under the MIT License - see the [MIT](LICENSE) file for details.
 ---
 
 **Happy Cloud Engineering! 🌩️☁️ 🚀!**
