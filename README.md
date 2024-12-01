@@ -208,5 +208,15 @@ cdk destroy
 
 - This project is licensed under the MIT License - see the [MIT](LICENSE) file for details.
 ---
+## Acknowledgments
 
+- **AWS CDK** for enabling easy infrastructure provisioning through code.
+- **CDK Dia** for helping visualize AWS infrastructure with architecture diagrams.
+
+- The **open source community** for continuously creating and maintaining tools that make projects like this one possible.
+---
+## Support
+
+For support, please open an issue in the repository or contact the maintainer at zaidanali028@gmail.com.
+---
 **Happy Cloud Engineering! 🌩️☁️ 🚀!**
