@@ -21,24 +21,32 @@ class VpcSetupStack(Stack):
             ingress_rules=[(ec2.Peer.ipv4(f"{constants.MY_IP}/32"), ec2.Port.tcp(22), "Allow SSH from my IP")]
         )
 
+         # Creating Frontend Security Group First
         frontend_sg = self.create_security_group(
             "FrontendSG", vpc, "Security group for Frontend",
             ingress_rules=[
                 (bastion_sg, ec2.Port.tcp(22), "Allow SSH from Bastion"),
                 (ec2.Peer.any_ipv4(), ec2.Port.tcp(80), "Allow HTTP from anywhere")
             ],
-            egress_rules=[(backend_sg, ec2.Port.tcp(8080), "Allow outbound to Backend instance only")]
         )
 
 
+        # Creating Backend Security Group after Frontend SG is created
         backend_sg = self.create_security_group(
             "BackendSG", vpc, "Security group for Backend",
             ingress_rules=[
-                (frontend_sg, ec2.Port.tcp(8080), "Allow inbound from Frontend"),
-                (bastion_sg, ec2.Port.tcp(22), "Allow SSH from Bastion")
+             (bastion_sg, ec2.Port.tcp(22), "Allow SSH from Bastion"),
+             (frontend_sg, ec2.Port.tcp(8080), "Allow inbound from Frontend")
             ],
-            egress_rules=[(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "Allow outbound HTTPS")]
-        )
+            egress_rules=[(ec2.Peer.any_ipv4(), ec2.Port.tcp(443), "Allow outbound HTTPS")])
+        
+    #    To Prevent `UnboundLocalError`
+        frontend_sg.add_egress_rule(backend_sg, ec2.Port.tcp(8080), "Allow outbound to Backend instance only")
+         
+
+
+        
+
 
        
         # Step 3: Creating Instances
